@@ -109,7 +109,9 @@ class ImageCropper:
         if self.debug:
             cv2.imwrite(f"debug_1_grayscale_{epoch_num}.jpg", gray)
             cv2.imwrite(f"debug_2_threshold_{epoch_num}.jpg", thresh)
-            logger.debug(f"Saved debug_1_grayscale_{epoch_num}.jpg and debug_2_threshold_{epoch_num}.jpg")
+            logger.debug(
+                f"Saved debug_1_grayscale_{epoch_num}.jpg and debug_2_threshold_{epoch_num}.jpg"
+            )
 
         # Find contours
         contours, _ = cv2.findContours(
@@ -222,7 +224,9 @@ class ImageCropper:
         if self.debug:
             cv2.imwrite(f"debug_1_edges_{epoch_num}.jpg", edges)
             cv2.imwrite(f"debug_2_dilated_{epoch_num}.jpg", dilated)
-            logger.debug(f"Saved debug_1_edges_{epoch_num}.jpg and debug_2_dilated_{epoch_num}.jpg")
+            logger.debug(
+                f"Saved debug_1_edges_{epoch_num}.jpg and debug_2_dilated_{epoch_num}.jpg"
+            )
         # Find contours
         contours, _ = cv2.findContours(
             dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
@@ -696,7 +700,9 @@ class ImageCropper:
                                 break
 
             # Return filtered objects if target_objects specified, otherwise all detected
-            final_detections = filtered_objects if target_objects is not None else all_detected
+            final_detections = (
+                filtered_objects if target_objects is not None else all_detected
+            )
             logger.debug(f"Returning {len(final_detections)} detection(s)")
             return final_detections
 
