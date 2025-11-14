@@ -60,11 +60,13 @@ uv run crop-ui
 # Or use the CLI directly
 uv run crop-cli --help
 
-# Single object detection and cropping with visualization
-uv run crop-cli sample_images/sample_image_00001.jpg --method yolo --visualize
+# Single object detection and visualization
+uv run crop-cli sample_images/sample_image_00001.jpg \
+    --method yolo --visualize
 
-# Batch object detection and cropping
-uv run crop-cli sample_images/sample_image_00001.jpg --method yolo --batch-crop
+# Single image batch object detection and cropping
+uv run crop-cli sample_images/sample_image_00001.jpg \
+    --method rt-detr --batch-crop
 ```
 
 ## Installation
