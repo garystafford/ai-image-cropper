@@ -7,13 +7,15 @@
 
 Intelligent image cropping tool with multiple detection methods including You Only Look Once (YOLO), DEtection TRansformer (DETR), Real-Time DEtection TRansformer (RT-DETR), and traditional computer vision algorithms. Available as both an interactive Gradio web interface and a command-line tool.
 
+![Preview](./previews/preview.png)
+
 ## Features
 
 ### Detection Methods
 
 - **YOLO** - Fast and accurate deep learning (recommended)
-- **RT-DETR** - Real-time DETR with faster inference and similar accuracy
 - **DETR** - State-of-the-art transformer-based detection
+- **RT-DETR** - Real-time DETR with faster inference and similar accuracy
 - **Contour** - Fast, works well with clear backgrounds
 - **Saliency** - Identifies visually interesting regions
 - **Edge** - Canny edge detection
@@ -29,6 +31,10 @@ Intelligent image cropping tool with multiple detection methods including You On
 - 🌐 **Web UI (User Interface)**: User-friendly Gradio interface
 - ⌨️ **CLI (Command-Line Interface)**: Full command-line interface for automation
 
+## Architecture
+
+![Code Flow](./previews/code_flow_gradio.png)
+
 ## Quick Start
 
 ```bash
@@ -42,8 +48,10 @@ cd ai-image-cropper
 # Install dependencies (creates .venv automatically)
 uv sync
 
+# Install all regular and development dependencies
 uv sync --dev
 
+# Source virtual environment is needed
 source .venv/bin/activate
 
 # Run the web interface (launches automatically)
