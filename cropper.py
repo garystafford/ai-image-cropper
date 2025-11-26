@@ -368,9 +368,18 @@ class ImageCropper:
                     "facebook/detr-resnet-50"
                 )
 
+            # Move model to GPU if available
+            device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            model = model.to(device)
+            if torch.cuda.is_available():
+                logger.info(f"Using GPU: {torch.cuda.get_device_name(0)}")
+            else:
+                logger.info("Using CPU (GPU not available)")
+
             # Prepare image
             pil_image = Image.open(self.image_path)
             inputs = processor(images=pil_image, return_tensors="pt")
+            inputs = {k: v.to(device) for k, v in inputs.items()}
 
             # Run inference
             with torch.no_grad():
@@ -502,9 +511,18 @@ class ImageCropper:
                 processor = RTDetrImageProcessor.from_pretrained(RTDETR_MODEL_NAME)
                 model = RTDetrForObjectDetection.from_pretrained(RTDETR_MODEL_NAME)
 
+            # Move model to GPU if available
+            device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+            model = model.to(device)
+            if torch.cuda.is_available():
+                logger.info(f"Using GPU: {torch.cuda.get_device_name(0)}")
+            else:
+                logger.info("Using CPU (GPU not available)")
+
             # Prepare image
             pil_image = Image.open(self.image_path)
             inputs = processor(images=pil_image, return_tensors="pt")
+            inputs = {k: v.to(device) for k, v in inputs.items()}
 
             # Run inference
             with torch.no_grad():
@@ -642,7 +660,7 @@ class ImageCropper:
                     dummy_image = np.zeros(
                         (WARMUP_IMAGE_SIZE, WARMUP_IMAGE_SIZE, 3), dtype=np.uint8
                     )
-                    temp_path = "/tmp/dummy_warmup.jpg"
+                    temp_path = "dummy_warmup.jpg"
                     cv2.imwrite(temp_path, dummy_image)
                     _ = _yolo_model_cache(temp_path, conf=0.1, verbose=False)
                     logger.info("YOLO model warmup completed")

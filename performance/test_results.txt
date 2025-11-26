@@ -1,0 +1,92 @@
+------------------------------------------------
+Performance Test Results: sample_images | yolo
+------------------------------------------------
+Source directory: sample_images
+Source image count:       13
+Configuration: METHOD=yolo, CONFIDENCE=0.50, PADDING=5
+Script run time: 37.360202000 seconds
+Total cropped objects:       67
+Image per minute: 20.80
+
+------------------------------------------------
+Performance Test Results: sample_images | detr
+------------------------------------------------
+Source directory: sample_images
+Source image count:       13
+Configuration: METHOD=detr, CONFIDENCE=0.50, PADDING=5
+Script run time: 75.567716000 seconds
+Total cropped objects:      251
+Image per minute: 10.27
+
+------------------------------------------------
+Performance Test Results: sample_images | rt-detr
+------------------------------------------------
+Source directory: sample_images
+Source image count:       13
+Configuration: METHOD=rt-detr, CONFIDENCE=0.50, PADDING=5
+Script run time: 115.630285000 seconds
+Total cropped objects:       87
+Image per minute: 6.63
+
+
+
+------------------------------------------------
+Performance Test Results: dogs_raw | yolo
+------------------------------------------------
+Source directory: dogs_raw
+Source image count:       27
+Configuration: METHOD=yolo, CONFIDENCE=0.50, PADDING=5
+Script run time: 199.106082000 seconds
+Total cropped objects:       52
+Image per minute: 8.10
+
+------------------------------------------------
+Performance Test Results: dogs_raw | detr
+------------------------------------------------
+Source directory: dogs_raw
+Source image count:       27
+Configuration: METHOD=detr, CONFIDENCE=0.50, PADDING=5
+Script run time: 282.674507000 seconds
+Total cropped objects:       60
+Image per minute: 5.67
+
+------------------------------------------------
+Performance Test Results: dogs_raw | rt-detr
+------------------------------------------------
+Source directory: dogs_raw
+Source image count:       27
+Configuration: METHOD=rt-detr, CONFIDENCE=0.50, PADDING=5
+Script run time: 367.100594000 seconds
+Total cropped objects:       54
+Image per minute: 4.32
+
+
+
+------------------------------------------------
+Performance Test Results: 250_vehicles_open | yolo
+------------------------------------------------
+Source directory: 250_vehicles_open
+Source image count:      250
+Configuration: METHOD=yolo, CONFIDENCE=0.50, PADDING=5
+Script run time: 1331.201646000 seconds
+Total cropped objects:      864
+Image per minute: 10.00
+------------------------------------------------
+Performance Test Results: 250_vehicles_open | detr
+------------------------------------------------
+Source directory: 250_vehicles_open
+Source image count:      250
+Configuration: METHOD=detr, CONFIDENCE=0.50, PADDING=5
+Script run time: 2047.750471000 seconds
+Total cropped objects:     2192
+Image per minute: 5.00
+------------------------------------------------
+Performance Test Results: 250_vehicles_open | rt-detr
+------------------------------------------------
+Source directory: 250_vehicles_open
+Source image count:      250
+Configuration: METHOD=rt-detr, CONFIDENCE=0.50, PADDING=5
+Script run time: 2837.439655000 seconds
+Total cropped objects:     1170
+Image per minute: 5.00
+
