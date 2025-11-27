@@ -123,7 +123,7 @@ After installation, use the convenient entry points:
 uv run crop-ui
 
 # Use CLI tool
-uv run crop-cli image.jpg --method yolo --visualize
+uv run crop-cli sample_images/sample_image_00001.jpg --method yolo --visualize
 ```
 
 Or activate the virtual environment for direct access:
@@ -177,26 +177,26 @@ This will start the Gradio server at `http://127.0.0.1:7860`
 
 ```bash
 # Using entry point (recommended)
-uv run crop-cli image.jpg --visualize --crop-output output.jpg
+uv run crop-cli sample_images/sample_image_00001.jpg --visualize --crop-output output.jpg
 
 # Or directly with Python
-python cropper.py image.jpg --visualize --crop-output output.jpg
+python cropper.py sample_images/sample_image_00001.jpg --visualize --crop-output output.jpg
 ```
 
 #### Single Object Detection
 
 ```bash
 # Detect and crop a couch with custom aspect ratio
-python cropper.py living_room.jpg --method yolo --object couch --aspect-ratio 16:9 --crop-output couch.jpg
+python cropper.py sample_images/sample_image_00001.jpg --method yolo --object couch --aspect-ratio 16:9 --crop-output couch.jpg
 
 # Detect person with RT-DETR (faster than DETR)
-python cropper.py photo.jpg --method rt-detr --object person --confidence 0.5 --padding 10 --crop-output person.jpg
+python cropper.py sample_images/sample_image_00014.jpg --method rt-detr --object person --confidence 0.5 --padding 10 --crop-output person.jpg
 
 # Detect person with DETR, add padding
-python cropper.py photo.jpg --method detr --object person --confidence 0.8 --padding 10 --crop-output person.jpg
+python cropper.py sample_images/sample_image_00014.jpg --method detr --object person --confidence 0.8 --padding 10 --crop-output person.jpg
 
 # Use contour detection with visualization
-python cropper.py product.jpg --method contour --threshold 200 --padding 5 --visualize
+python cropper.py sample_images/sample_image_00016.jpg --method contour --threshold 200 --padding 5 --visualize
 ```
 
 #### Batch Processing
@@ -205,21 +205,21 @@ Batch processing automatically crops all detected objects and saves them separat
 
 ```bash
 # Detect and crop all people in a family photo
-python cropper.py family.jpg --method yolo --batch-crop --batch-output-dir ./people
+python cropper.py sample_images/sample_image_00014.jpg --method yolo --batch-crop --batch-output-dir ./people
 
 # Batch crop with RT-DETR for faster processing
-python cropper.py room.jpg --method rt-detr --batch-crop --confidence 0.5
+python cropper.py sample_images/sample_image_00001.jpg --method rt-detr --batch-crop --confidence 0.5
 
 # Batch crop with custom aspect ratio and padding (DETR)
-python cropper.py room.jpg --method detr --batch-crop --aspect-ratio 4:3 --padding 15
+python cropper.py sample_images/sample_image_00001.jpg --method detr --batch-crop --aspect-ratio 4:3 --padding 15
 
 # Batch crop all objects (no specific object filter)
-python cropper.py scene.jpg --method yolo --batch-crop --confidence 0.7
+python cropper.py sample_images/sample_image_00001.jpg --method yolo --batch-crop --confidence 0.7
 ```
 
 #### CLI Options
 
-```
+```text
 positional arguments:
   image_path            Path to the input image
 
@@ -271,7 +271,7 @@ DETR and RT-DETR require more memory than YOLO. RT-DETR is more efficient than D
 
 ## Project Structure
 
-```
+```text
 image-cropper/
 ├── app.py                    # Gradio web interface
 ├── cropper.py                # Core processing engine + CLI
